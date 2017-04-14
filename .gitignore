@@ -1,0 +1,4 @@
+.vscode/*
+dotnet/bin/*
+dotnet/obj/
+js/es6/node_modules/**
