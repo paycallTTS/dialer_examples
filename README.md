@@ -16,12 +16,26 @@ The repository includes at the moment examples only for simple dialer, however i
 
 ### TODO:
 
+  1. Simple Dialer
+
   - [X] Ruby
   - [X] Python
   - [X] Javascript
   - [ ] PHP
   - [ ] Go
   - [X] Java
+  - [ ] C
+  - [ ] C#
+  - [ ] Linux/MacOS-X CLI
+
+  2. IVR Dialer
+
+  - [ ] Ruby
+  - [ ] Python
+  - [ ] Javascript
+  - [ ] PHP
+  - [ ] Go
+  - [ ] Java
   - [ ] C
   - [ ] C#
   - [ ] Linux/MacOS-X CLI
