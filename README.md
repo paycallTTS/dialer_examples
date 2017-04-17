@@ -10,6 +10,7 @@ The current supported languages, are:
   - Ruby
   - Python
   - Javascript (old syntax and ES6 using node.js)
+  - Java
 
 The repository includes at the moment examples only for simple dialer, however it will include examples for all of the API requests.
 
@@ -20,7 +21,7 @@ The repository includes at the moment examples only for simple dialer, however i
   - [X] Javascript
   - [ ] PHP
   - [ ] Go
-  - [ ] Java
+  - [X] Java
   - [ ] C
   - [ ] C#
   - [ ] Linux/MacOS-X CLI

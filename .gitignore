@@ -2,3 +2,5 @@
 dotnet/bin/*
 dotnet/obj/
 js/es6/node_modules/**
+/java/TTS Examples/build/
+/java/TTS Examples/dist/
