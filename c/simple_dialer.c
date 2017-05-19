@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <alloca.h>
 #include <uuid/uuid.h>
 #include <curl/curl.h>
 
@@ -27,7 +28,7 @@ void get_uuid(uuid_str_t *uuid_str) {
 }
 
 char * init_json(uuid_str_t unique_id) {
-    char * result = calloc(MAX_STRUCT_SIZE, sizeof(char*));
+    char * result = alloca(MAX_STRUCT_SIZE * sizeof(char*));
 
     snprintf(result, MAX_STRUCT_SIZE, JSON, unique_id);
     return result;
@@ -36,8 +37,8 @@ char * init_json(uuid_str_t unique_id) {
 const char * post_request(CURL *curl, const char * username, const char * password, const char * action, char * data) {
     int url_len = strlen(BASIC_ADDRESS) + strlen(action) + 1;
     int credential_len = strlen(username) + strlen(password) + 1;
-    char * url = calloc(url_len, sizeof(char*));
-    char * credentials = calloc(credential_len, sizeof(char *));
+    char * url = alloca(url_len * sizeof(char*));
+    char * credentials = alloca(credential_len * sizeof(char *));
     snprintf(url, url_len, BASIC_ADDRESS, action);
 
     curl_easy_setopt(curl, CURLOPT_VERBOSE, 1);
@@ -66,9 +67,6 @@ const char * post_request(CURL *curl, const char * username, const char * passwo
     if (headers)
         free(headers);
 
-    free(url);
-    free(credentials);
-
     if (res != CURLE_OK)
         return curl_easy_strerror(res);
 
@@ -76,13 +74,10 @@ const char * post_request(CURL *curl, const char * username, const char * passwo
 }
 
 const char * start_campaign(CURL *curl, const char * username, const char * password, uuid_str_t id) {
-    char * path = calloc(60, sizeof(char*));
+    char * path = alloca(60 * sizeof(char*));
     strncat(path, "start_campaign/", 59);
     strncat(path, id, 59);
     const char * result = post_request(curl, username, password, path, NULL);
-
-    if (path)
-        free(path);
 
     return result;
 }
@@ -123,8 +118,6 @@ int main(int argc, char *argv[] ) {
     printf("Campaign %s was started successfully\n", uuid_str);
 
 cleanup:
-    if (json)
-        free(json);
     curl_easy_cleanup(curl);
     curl_global_cleanup();
 
