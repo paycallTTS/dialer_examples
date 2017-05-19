@@ -24,7 +24,7 @@ The repository includes at the moment examples only for simple dialer, however i
   - [ ] PHP
   - [ ] Go
   - [X] Java
-  - [ ] C
+  - [X] C
   - [ ] C#
   - [ ] Linux/MacOS-X CLI
 
